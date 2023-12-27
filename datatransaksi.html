@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan Menu dengan Combo</title>
+  </head>
+  <body>
+    <header>
+      <h1>SISTEM INFORMASI BARANG</h1>
+    </header>
+    <div class="container">
+    <div class="container-1">
+      <button><a href="index.html">Data Barang</a></button>
+      <button>Data Transaksi</button>
+      <button><a href="datapelanggan.html">Data Pelanggan</a></button>
+    </div>
+    <div class="container-2">
+      <h1>DATA TRANSAKSI</h1>
+      <div class="input">
+        <div class="i">
+          <p>No Faktur </p>
+          <input type="text" id="noFaktur" />
+        </div>
+        <div class="i">
+          <p>Kode Barang</p>
+          <input type="text" id="kodeBarang" />
+        </div>
+        <div class="i">
+          <p>Harga Jual</p>
+          <input type="text" id="hargaJual" />
+        </div>
+        <div class="i">
+          <p>Jumlah Jual</p>
+          <input type="text" id="jumlahJual" />
+        </div>
+      </div>
+      <div class="proses">
+        <button>Proses</button>
+      </div>
+
+      <div class="output" id="outputContainer">
+        <div class="o">
+          <p>NO Faktur</p>
+          <input type="text" />
+        </div>
+
+        <div class="o">
+          <p>Kode Barang</p>
+          <input type="text" />
+        </div>
+
+        <div class="o">
+          <p>Harga</p>
+          <input type="text" />
+        </div>
+
+        <div class="o">
+          <p>Jumlah Jual</p>
+          <input type="text" />
+        </div>
+
+        <div class="o">
+          <p>Total</p>
+          <input type="text" />
+        </div>
+
+        <div class="o">
+          <p>Diskon</p>
+          <input type="text" />
+        </div>
+      </div>
+    </div>
+    </div>
+    <script>
+      const noFaktur = document.getElementById("noFaktur");
+      const kodeBarang = document.getElementById("kodeBarang");
+      const hargaJual = document.getElementById("hargaJual");
+      const jumlahJual = document.getElementById("jumlahJual");
+      const outputContainer = document.getElementById("outputContainer");
+
+      const prosesButton = document.querySelector(".proses button");
+
+      prosesButton.addEventListener("click", () => {
+        const faktur = noFaktur.value;
+        const kode = kodeBarang.value;
+        const harga = Number(hargaJual.value);
+        const jumlah = Number(jumlahJual.value);
+
+        let total = harga * jumlah;
+        let diskon = 0;
+        if (faktur === "B01" && jumlah >= 10) {
+          diskon = total * 0.07;
+          total -= diskon;
+        }
+
+        const outputHTML = `
+    <div class="o">
+      <p>NO Faktur</p>
+      <input type="text" value="${faktur}" readonly>
+    </div>
+    <div class="o">
+      <p>Kode Barang</p>
+      <input type="text" value="${kode}" readonly>
+    </div>
+    <div class="o">
+      <p>Harga</p>
+      <input type="text" value="${harga}" readonly>
+    </div>
+    <div class="o">
+      <p>Jumlah Jual</p>
+      <input type="text" value="${jumlah}" readonly>
+    </div>
+    <div class="o">
+      <p>Total</p>
+      <input type="text" value="${total.toFixed(2)}" readonly>
+    </div>
+    <div class="o">
+      <p>Diskon</p>
+      <input type="text" value="${diskon.toFixed(2)}" readonly>
+    </div>
+  `;
+
+        outputContainer.innerHTML = outputHTML;
+      });
+    </script>
+  </body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      position: fixed;
+      background-color: #a2c523;
+    }
+        
+    header{
+      text-align: center;
+      background-color: #a2c523;
+      padding: 50px;
+    }
+    .container {
+      display: flex;
+    }
+    .container-1 {
+      background-color: rgb(232, 197, 21);
+      padding: 15px;
+      margin: auto;
+      width: 25%;
+      height: 300px;
+    }
+    .container-1 button {
+      display: block;
+      width: 250px;
+      margin: auto;
+      padding: 12px;
+    }
+    #menu {
+      margin-bottom: 30px;
+    }
+    .container-2 {
+      background-color: rgb(255, 0, 208);
+      width: 1210px;
+    }
+    .container-2 h1 {
+      text-align: center;
+      padding-top: 12px;
+    }
+    .input {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      padding: 6px;
+    }
+    .i {
+      display: flex;
+      gap: 1rem;
+      margin: 2px;
+      box-sizing: border-box;
+    }
+    .proses {
+      position: relative;
+      left: 150px;
+    }
+    .proses button {
+      width: 185px;
+      padding: 12px;
+    }
+    .output {
+      display: flex;
+      position: relative;
+      margin-top: 12px;
+    }
+    .o p {
+      padding: 12px;
+      background-color: white;
+      width: 150px;
+      box-sizing: border-box;
+      text-align: center;
+      border: 1px solid black;
+    }
+    .o input {
+      display: block;
+      width: 150px;
+      height: 30px;
+      background-color: white;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+  </style>
+</html>

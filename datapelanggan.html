@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan dengan Combo Box</title>
+  </head>
+  <body>
+    <header>
+      <h1>SISTEM INFORMASI BARANG</h1>
+    </header>
+    <div class="container">
+    <div class="container-1">
+      <button><a href="index.html">Data Barang</a></button>
+      <button><a href="datatransaksi.html">Data Transaksi</a></button>
+      <button>Data Pelanggan</button>
+    </div>
+    <div class="container-2">
+      <h1>DATA PELANGGAN</h1>
+      <div class="input">
+        <div class="i">
+          <p>Kode Pelanggan</p>
+          <input type="text" id="kodepelanggan" />
+        </div>
+        <div class="i">
+          <p>Nama Pelanggan</p>
+          <input type="text" id="namapelanggan" />
+        </div>
+        <div class="i">
+          <p>Telp</p>
+          <input type="text" id="telp" />
+        </div>
+      </div>
+      <div class="proses">
+        <button onclick="prosesData()">proses</button>
+      </div>
+
+      <div class="output" id="outputContainer">
+      </div>
+    </div>
+    </div>
+
+    <script>
+      function prosesData() {
+        var kode = document.getElementById("kodepelanggan").value;
+        var nama = document.getElementById("namapelanggan").value;
+        var telp = document.getElementById("telp").value;
+        var outputHtml =
+          '<div class="o"><p>Kode Pelanggan</p><input type="text" value="' +
+          kode +
+          '"></div>' +
+          '<div class="o"><p>Nama Pelanggan</p><input type="text" value="' +
+          nama +
+          '"></div>' +
+          '<div class="o"><p>Telp</p><input type="text" value="' +
+          telp +
+          '"></div>';
+        document.getElementById("outputContainer").innerHTML = outputHtml;
+      }
+    </script>
+  </body>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      position: fixed;
+      background-color: #a2c523;
+    }
+    header{
+      text-align: center;
+      background-color: #a2c523;
+      padding: 50px;
+    }
+    .container {
+      display: flex;
+    }
+    .container-1{
+      border: 2px solid black;
+      background-color: #ff00f2;
+      padding: 15px;
+      width: 25%;
+      height: 300px;
+    }
+    .container-1 button{
+      display: block;
+      width: 250px;
+      margin: auto;
+      padding: 12px;
+    }
+    #menu{
+      margin-bottom: 30px;
+    }
+    .container-2{
+      width: 1205px;
+      background-color: rgb(0, 255, 81);
+      border:  2px solid  #000000;
+      box-sizing: border-box;
+    }
+    .container-2 h1 {
+    text-align: center;
+    padding-top: 12px;
+    }
+    .input{
+      display:flex ;
+      gap: 2rem;
+      justify-content: space-around;
+
+    }
+    input{
+      padding: 6px;
+    }
+    .i{
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 2px;
+      
+      padding: 12px;
+      box-sizing: border-box;
+    }
+    .proses{
+      position: relative;
+      left: 470px;
+      
+    }
+    .proses button {
+    width: 185px;
+    padding: 12px;
+
+    }
+    .output{
+      display:flex;
+      position: relative;
+      left: 283px;
+      margin-top: 12px; 
+    }
+    .o p{
+      padding: 12px;
+      background-color: white;
+      width: 150px;
+      box-sizing: border-box;
+      text-align: center;
+      border: 1px solid  black;
+
+    }
+    .o input{
+      display: block;
+      width: 150px;
+      height: 30px;
+      background-color: white;
+      border: 1PX solid black;
+      box-sizing: border-box;
+    }
+  </style>
+</html>
+
